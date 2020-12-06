@@ -59,11 +59,10 @@ def get_pet_labels(image_dir):
            #          extracted dog breed name in the variable pet_label 
            #          that's created as an empty string ABOVE
 #            pass
-           file=list(in_files[idx].split())
+           file=list(in_files[idx].split("_"))
            for i in  file:
                if i.isalpha():
-                    pet_label+=i.lower()+" "
-            
+                    pet_label+=i.lower()+""
 
            if in_files[idx] not in results_dic:
               results_dic[in_files[idx]] = [pet_label]
