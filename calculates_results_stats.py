@@ -82,7 +82,8 @@ def calculates_results_stats(results_dic):
          
         if results_dic[key][2] == 1:
             results_stats_dic['n_match'] += 1
-            results_stats_dic['n_correct_breed'] += 1
+            if results_dic[key][3] == 1:
+                results_stats_dic['n_correct_breed'] += 1
         
         if results_dic[key][3] == 1:
             results_stats_dic['n_dogs_img'] += 1
@@ -94,7 +95,8 @@ def calculates_results_stats(results_dic):
         else:
             # Classifier classifies image as NOT a Dog(& pet image isn't a dog)
             # counts number of correct NOT dog clasifications.
-            results_stats_dic['n_correct_notdogs'] +=1 
+            if results_dic[key][4] ==0:
+                results_stats_dic['n_correct_notdogs'] +=1 
 
     results_stats_dic['n_images'] = len(results_dic)
 
